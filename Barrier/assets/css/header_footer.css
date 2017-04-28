@@ -1,0 +1,23 @@
+.main.container{
+	height: 100%;
+}
+
+/*header footer*/
+.ui.menu.item img.logo{
+	margin-right: 1.5em;
+}
+
+.pusher{
+	padding-top: 80px;
+	padding-left: 25px;
+	padding-right: 25px;
+	/*padding-bottom: 100px;*/
+	/*width: 100%;*/
+	/*min-height: 100%;*/
+}
+
+#footer{
+  margin: 5em 0em 0em;
+  padding: 1em 0em;
+  width: 100%;
+}

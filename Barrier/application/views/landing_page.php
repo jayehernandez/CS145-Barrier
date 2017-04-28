@@ -16,37 +16,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.js"></script>
   <!-- CSS file location -->
-  <link href="<?php echo base_url('assets/css/header.css'); ?>" rel="stylesheet" type="text/css">
-  <!-- javascript file location -->
-  <!-- <script src="header.js"></script> -->
+  <link href="<?php echo base_url('assets/css/header_footer.css'); ?>" rel="stylesheet" type="text/css">
+  <link href="<?php echo base_url('assets/css/landing_page.css'); ?>" rel="stylesheet" type="text/css">
 </head>
 
 <body>
   <!-- header -->
   <?php include('header.php'); ?>
-
   <div class="main container">
     <div class="pusher">
-      <center>
-      <div class="ui green animated button" href="https://semantic-ui.com" >
-        <div class="visible content">
-          Accept
-        </div>
-        <div class="hidden content">
-          <i class="checkmark link icon"></i>          
-        </div>
-      </div>
-      </center>
-      <br>
-      blah
-      lhljckjznckjzDNVzjdsfdsdghay nakosgkv,br.<br><br><br><br><br><br>sfklandvlsndkjbasdb
+      <div id="map"></div>
+    </div>
+  </div>
+
+
+  <div class="ui fluid orange center aligned inverted vertical  fixed bottom sticky footer segment" id="footer">
+    <div class="ui horizontal inverted small divided link list">
     </div>
   </div>
 </body>
 
-<script type="text/javascript">
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5VGrg2pYcLveD8MFh7oXZdIQBYLqr4-Y&callback=initMap">
+</script>
+<script>
+  function initMap() {
+    var uluru = {lat: -25.363, lng: 131.044};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 4,
+      center: uluru
+    });
+    var marker = new google.maps.Marker({
+      position: uluru,
+      map: map
+    });
+  }
 
+$('#modal_id')
+  .modal('attach events', '#didikitan_ng_modal', 'show')
+;
 </script>
 
-</head>
+
 </html>
