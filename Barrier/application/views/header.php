@@ -15,17 +15,17 @@
             <form id="add_form" class="ui form">
               <div class="required field">
                 <label>Barrier ID</label>
-                <input type="text" id="barrier_id" maxlength="7" placeholder="1234567">
+                <input type="text" id="barrier_id" maxlength="50" placeholder="Barrier XX">
               </div>
               <h4 class="ui dividing header">Coordinates</h4>
               <div class="two required fields">
                 <div class="field">
                   <label>Latitude</label>
-                  <input type="text" id="latitude" maxlength="10" placeholder="10.2345">
+                  <input type="text" id="latitude" maxlength="30" placeholder="00.0000">
                 </div>
                 <div class="field">
                   <label>Longitude</label>
-                  <input type="text" id="longitude" maxlength="10" placeholder="60.7891">
+                  <input type="text" id="longitude" maxlength="30" placeholder="00.0000">
                 </div>
             </div>
             </form>
@@ -51,7 +51,7 @@
             </div>
             <div class="ui red cancel button">Cancel
             </div>
-            <button class="ui green submit button" type="submit" form="add_form">Save</button>
+            <button class="ui green submit button" type="submit" id="save">Save</button>
           </div>
         </div>
       </a>

@@ -23,6 +23,32 @@ $('.reset.button').on('click', function() {
   $('.ui.form')[0].reset(); //edit details form
 });
 
+// ajax POST function to store marker to database
+$(function(){
+  $("#save").click(function(event){
+    event.preventDefault();//prevent auto submit data
+    var ajax_barrier_id= $("#barrier_id").val();
+    var ajax_latitude = $("#latitude").val();
+    var ajax_longitude = $("#longitude").val();
+    //if(isNaN(ajax_latitude) && isNaN(ajax_longitude)){
+      $.ajax({
+        type:"post",
+        url: "<?php echo base_url(); ?>/Barrier/add_marker",
+        data:{
+          ajax_barrier_id:ajax_barrier_id,
+          ajax_latitude:ajax_latitude,
+          ajax_longitude:ajax_longitude,
+          '<?php echo $this->security->get_csrf_token_name(); ?>':'<?php echo $this->security->get_csrf_hash(); ?>'
+        },
+        success:function(data){
+            console.log(data);
+            //window.location.reload();
+        },
+      });
+    //}
+  });
+});
+
 // form validation
 $('.ui.form').form({
     inline: true,
@@ -32,9 +58,6 @@ $('.ui.form').form({
         rules: [
           {
             type   : 'empty'
-          },
-          {
-            type   : 'number'
           }
         ]},
       latitude: {
@@ -56,5 +79,4 @@ $('.ui.form').form({
           }
         ]}
     }
-  })
-;
+  });

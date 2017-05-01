@@ -6,12 +6,11 @@ GRANT ALL PRIVILEGES ON barrierdb.* TO 'barrieradmin'@'localhost';
 
 USE hrdodb;
 
-CREATE TABLE `barrierdb`.`barrier_data` ( 
-	`id` SERIAL NOT NULL , 
-	`barrier_name` VARCHAR(256) NOT NULL , 
-	`barrier_longitude` VARCHAR(256) NOT NULL , 
-	`barrier_latitude` VARCHAR(256) NOT NULL , 
-	`barrier_status` BOOLEAN NOT NULL , 
-	PRIMARY KEY (`barrier_name`)) 
+CREATE TABLE `barrierdb`.`barrier_data` (
+	`id` SERIAL NOT NULL ,
+	`barrier_id` VARCHAR(256) NOT NULL ,
+	`barrier_longitude` VARCHAR(256) NOT NULL ,
+	`barrier_latitude` VARCHAR(256) NOT NULL ,
+	`barrier_status` BOOLEAN NOT NULL ,
+	PRIMARY KEY (`barrier_id`))
 ENGINE = InnoDB;
-
