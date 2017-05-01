@@ -32,10 +32,16 @@
             <div class="ui equal width center aligned grid">
               <div class="row">
                 <div class="column">
-                  <button class="fluid ui basic orange button" id="curr">Same as current location</button>
+                  <button class="fluid ui orange button top attached" id="curr">Same as current location</button>
+                  <div class="ui attached message">
+                  Click the <i class=" crosshairs icon"></i> icon located at the lower right hand side of the screen to get the current location.
+                  </div>
                 </div>
                 <div class="column">
-                  <button class="fluid ui basic orange button" id="added">Same as marker added on map</button>
+                  <button class="fluid ui orange button top attached" id="added">Same as marker added on map</button>
+                  <div class="ui attached message">
+                  Click the place on the map where you want to add a new barrier. Note that you can only add one at a time.
+                  </div>
                 </div>
               </div>
             </div>
