@@ -1,4 +1,9 @@
-#map{
-	height: 505px;
+body, html {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+#map {
+	height: 96.5%;
+	margin-top: 3%;
 	width: 100%;
 }

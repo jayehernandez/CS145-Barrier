@@ -15,20 +15,24 @@
             <form id="add_form" class="ui form">
               <div class="required field">
                 <label>Barrier ID</label>
-                <input type="text" name="barrier_id" maxlength="7" placeholder="1234567">
+                <input type="text" id="barrier_id" maxlength="7" placeholder="1234567">
               </div>
               <h4 class="ui dividing header">Coordinates</h4>
               <div class="two required fields">
                 <div class="field">
                   <label>Latitude</label>
-                  <input type="text" name="latitude" maxlength="10" placeholder="0123456789">
+                  <input type="text" id="latitude" maxlength="10" placeholder="10.2345">
                 </div>
                 <div class="field">
                   <label>Longitude</label>
-                  <input type="text" name="longitude" maxlength="10" placeholder="0123456789">
+                  <input type="text" id="longitude" maxlength="10" placeholder="60.7891">
                 </div>
-              </div>
+            </div>
             </form>
+          <div class="two wide column">
+              <button class="ui button" id="curr">Same as current location</button>
+              <button class="ui button" id="added">Same as marker added on map</button>
+          </div>
           </div>
           <div class="actions">
             <div class="ui blue basic reset button">Reset
@@ -39,60 +43,6 @@
           </div>
         </div>
       </a>
-    </div>            
+    </div>
   </div>
 </div>
-
-<script>
-
-  $('#add_modal')
-    .modal('attach events', '#add_menu', 'show')
-  ;
-
-    // cancel button for edit details
-  $('.cancel.button').on('click', function() {
-    $('.ui.form')[0].reset(); //edit details form
-    $('.ui.form .ui.dropdown').dropdown('restore defaults');
-  });
-
-  // reset button for the forms
-  $('.reset.button').on('click', function() {
-    $('.ui.form')[0].reset(); //edit details form
-    $('.ui.form .ui.dropdown').dropdown('restore defaults');
-  });
-
-$('.ui.form').form({
-      inline: true,
-      on: "blur",
-      fields: {
-        barrier_id: {
-          rules: [
-            {
-              type   : 'empty'
-            },
-            {
-              type   : 'number'
-            }
-          ]},
-        latitude: {
-          rules: [
-            {
-              type   : 'empty'
-            },
-            {
-              type   : 'number'
-            }
-          ]},
-        longitude: {
-          rules: [
-            {
-              type   : 'empty'
-            },
-            {
-              type   : 'number'
-            }
-          ]}
-      }
-    })
-  ;
-</script>
