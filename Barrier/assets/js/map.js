@@ -1,14 +1,17 @@
-var map, curr;
+var map, currLocation, mark, currMarker;
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
    center: {lat: 14.5995, lng: 120.9842},
    zoom: 10
   });
-  var currLocation = new google.maps.Marker({
+  var current = new google.maps.Marker({
     map: map,
     icon: 'http://i67.tinypic.com/ndvfih.png'
   });
-  addYourLocationButton(map, currLocation);
+  addYourLocationButton(map, current); // for clicking current location
+  google.maps.event.addListener(map, 'click', function(event) {
+    placeMarker(event.latLng);
+  }); // for adding a marker
 }
 
 function addYourLocationButton(map, marker) {
@@ -54,7 +57,7 @@ function addYourLocationButton(map, marker) {
   	if(navigator.geolocation) {
   		navigator.geolocation.getCurrentPosition(function(position) {
   			var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-        curr = latlng; // update global variable
+        currLocation = latlng; // update global variable
   			marker.setPosition(latlng);
   			map.setCenter(latlng);
         map.setZoom(17);
@@ -68,7 +71,8 @@ function addYourLocationButton(map, marker) {
           fillOpacity: 0.5,
           strokeColor: '#badcef',
           strokeOpacity: 0.5,
-          radius: 300
+          radius: 300,
+          clickable: false
         });
   		});
   	}
@@ -77,7 +81,20 @@ function addYourLocationButton(map, marker) {
   		$('#you_location_img').css('background-position', '0px 0px');
   	}
   });
-
   controlDiv.index = 1;
   map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(controlDiv);
+}
+
+// place a single marker and update current marker location
+function placeMarker(location) {
+  if (mark) {
+    mark.setPosition(location);
+  }
+  else {
+    mark = new google.maps.Marker({
+      position: location,
+      map: map
+    });
+  }
+  currMarker = location;
 }

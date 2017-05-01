@@ -29,10 +29,16 @@
                 </div>
             </div>
             </form>
-          <div class="two wide column">
-              <button class="ui button" id="curr">Same as current location</button>
-              <button class="ui button" id="added">Same as marker added on map</button>
-          </div>
+            <div class="ui equal width center aligned grid">
+              <div class="row">
+                <div class="column">
+                  <button class="fluid ui basic orange button" id="curr">Same as current location</button>
+                </div>
+                <div class="column">
+                  <button class="fluid ui basic orange button" id="added">Same as marker added on map</button>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="actions">
             <div class="ui blue basic reset button">Reset

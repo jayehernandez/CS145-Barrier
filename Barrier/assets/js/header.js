@@ -1,14 +1,15 @@
 $('#add_modal').modal('attach events', '#add_menu', 'show');
 
+// get current location or marker and set those values in add form
 var lat = document.getElementById("latitude");
 var lng = document.getElementById("longitude");
 $('#curr').on('click', function() {
-  lat.value = curr.lat();
-  lng.value = curr.lng();
+  lat.value = currLocation.lat();
+  lng.value = currLocation.lng();
 });
 $('#added.button').on('click', function() {
-  lat.value = "100";
-  lng.value = "6000";
+  lat.value = currMarker.lat();
+  lng.value = currMarker.lng();
 });
 
 // cancel button for edit details
@@ -22,7 +23,7 @@ $('.reset.button').on('click', function() {
   $('.ui.form')[0].reset(); //edit details form
 });
 
-
+// form validation
 $('.ui.form').form({
     inline: true,
     on: "blur",
