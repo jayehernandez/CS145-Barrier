@@ -41,6 +41,24 @@ function initMap() {
    center: {lat: 14.5995, lng: 120.9842},
    zoom: 10
   });
+  
+  // Multiple Markers
+  var markers = [
+    ['B1', 14.66864,121.3131],
+    ['B2', 14.70292,121.4],
+    ['B3', 14.70292,121.5],
+  ];
+    
+  // Loop through our array of markers & place each one on the map  
+  for( i = 0; i < markers.length; i++ ) {
+      var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+      marker = new google.maps.Marker({
+          position: position,
+          map: map,
+          title: markers[i][0]
+      });
+  }
+
   var current = new google.maps.Marker({
     map: map,
     icon: 'http://i67.tinypic.com/ndvfih.png'
@@ -49,6 +67,7 @@ function initMap() {
   google.maps.event.addListener(map, 'click', function(event) {
     placeMarker(event.latLng);
   }); // for adding a marker
+
 }
 
 function addYourLocationButton(map, marker) {
