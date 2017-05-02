@@ -44,9 +44,11 @@ function initMap() {
   
   // Multiple Markers
   var markers = [
-    ['B1', 14.66864,121.3131],
-    ['B2', 14.70292,121.4],
-    ['B3', 14.70292,121.5],
+  <?php foreach ($markers as $marker):?>
+    <?php echo "['".$marker['barrier_id']."', ".$marker['barrier_latitude'].", ".$marker['barrier_longitude']."], \n";
+  
+    ?>
+  <?php endforeach; ?>
   ];
     
   // Loop through our array of markers & place each one on the map  
